@@ -3,7 +3,10 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 
 # Create the Lunar Lander environment
-env = DummyVecEnv([lambda: gym.make('LunarLander-v2', render_mode="human")])
+def make_lunar_lander_env():
+    return gym.make('LunarLander-v2', render_mode="human")
+
+env = DummyVecEnv([make_lunar_lander_env])
 print("[*] Env Made")
 
 model = PPO.load("ppo_lunar_lander")
