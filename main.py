@@ -14,7 +14,7 @@ print("[*] Model Loaded")
 total_rewards = 0
 num_eval_episodes = 10
 
-for _ in range(num_eval_episodes):
+for episode in range(num_eval_episodes):
     state = env.reset()
     done = False
 
@@ -22,8 +22,8 @@ for _ in range(num_eval_episodes):
         env.render()
         action, _ = model.predict(state)
         state, reward, done, _ = env.step(action)
-        print(f'Reward: {reward}')
         total_rewards += reward
+    print(f'Episode {episode+1} - Cumulative Reward: {total_rewards}')
 
 average_reward = total_rewards / num_eval_episodes
 print(f"Average Reward over {num_eval_episodes} episodes: {average_reward}")
