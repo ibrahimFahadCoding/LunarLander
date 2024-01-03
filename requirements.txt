@@ -1,0 +1,4 @@
+gymnasium
+gym[all]
+gym[box2d]
+stable_baselines3
